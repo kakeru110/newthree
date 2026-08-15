@@ -1,5 +1,6 @@
 ---
 import '../styles/global.css';
+import { withBase } from '../utils/url';
 
 interface Props {
   title: string;
@@ -7,7 +8,6 @@ interface Props {
 }
 
 const { title, description = '総務省などの公的統計データを、意味づけと解説つきで可視化するノート。' } = Astro.props;
-const base = import.meta.env.BASE_URL;
 ---
 
 <!doctype html>
@@ -21,10 +21,10 @@ const base = import.meta.env.BASE_URL;
   <body>
     <header class="site-header">
       <div class="wrap">
-        <a class="site-title" href={base}>統計データノート</a>
+        <a class="site-title" href={withBase('')}>統計データノート</a>
         <nav class="site-nav">
-          <a href={base}>ホーム</a>
-          <a href={`${base}categories/`}>カテゴリ</a>
+          <a href={withBase('')}>ホーム</a>
+          <a href={withBase('categories/')}>カテゴリ</a>
         </nav>
       </div>
     </header>

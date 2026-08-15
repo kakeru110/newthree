@@ -1,6 +1,7 @@
 ---
 import { getCollection } from 'astro:content';
 import BaseLayout from '../../layouts/BaseLayout.astro';
+import { withBase } from '../../utils/url';
 
 export async function getStaticPaths() {
   const articles = await getCollection('articles');
@@ -17,18 +18,17 @@ export async function getStaticPaths() {
 
 const { category } = Astro.params;
 const { articles } = Astro.props;
-const base = import.meta.env.BASE_URL;
 const dateFmt = new Intl.DateTimeFormat('ja-JP', { year: 'numeric', month: 'long', day: 'numeric' });
 ---
 
 <BaseLayout title={`${category} | 統計データノート`}>
   <div class="wrap">
-    <p class="eyebrow"><a href={`${base}categories/`}>カテゴリ</a> ・ {category}</p>
+    <p class="eyebrow"><a href={withBase('categories/')}>カテゴリ</a> ・ {category}</p>
     <h1 style="font-size: 24px; margin: 8px 0 20px;">{category}</h1>
 
     <div class="card-list">
       {articles.map((article) => (
-        <a class="card" href={`${base}${article.data.href}`}>
+        <a class="card" href={withBase(article.data.href)}>
           <p class="card-title">{article.data.title}</p>
           <p class="card-desc">{article.data.description}</p>
           <div class="card-meta">
