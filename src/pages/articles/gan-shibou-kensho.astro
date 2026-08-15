@@ -1,0 +1,68 @@
+---
+import { getEntry, render } from 'astro:content';
+import ArticleLayout from '../../layouts/ArticleLayout.astro';
+import LineChart from '../../components/charts/LineChart.astro';
+import cancer from '../../data/cancer-mortality.json';
+
+const entry = await getEntry('articles', 'gan-shibou-kensho');
+if (!entry) throw new Error('article entry not found: gan-shibou-kensho');
+const { Content } = await render(entry);
+
+const years = cancer.crude.map((d) => String(d.year));
+const crudeByYear = new Map(cancer.crude.map((d) => [d.year, d.rate]));
+const adjustedByYear = new Map(cancer.ageAdjusted.map((d) => [d.year, d]));
+
+const rateSeries = [
+  {
+    name: '粗死亡率(年齢調整なし)',
+    colorSlot: 1 as const,
+    values: cancer.crude.map((d) => crudeByYear.get(d.year) ?? null),
+  },
+  {
+    name: '年齢調整死亡率(男)',
+    colorSlot: 2 as const,
+    values: cancer.crude.map((d) => adjustedByYear.get(d.year)?.male ?? null),
+  },
+  {
+    name: '年齢調整死亡率(女)',
+    colorSlot: 3 as const,
+    values: cancer.crude.map((d) => adjustedByYear.get(d.year)?.female ?? null),
+  },
+];
+
+const ageSeries = [
+  {
+    name: `がん死亡率(${cancer.byAge.year}年)`,
+    colorSlot: 1 as const,
+    values: cancer.byAge.rows.map((r) => r.rate),
+  },
+];
+const ageCategories = cancer.byAge.rows.map((r) => r.age);
+---
+
+<ArticleLayout
+  title={entry.data.title}
+  description={entry.data.description}
+  category={entry.data.category}
+  dataAsOf={entry.data.dataAsOf}
+  sourceName={entry.data.sourceName}
+  sourceUrl={entry.data.sourceUrl}
+>
+  <Fragment slot="chart">
+    <LineChart
+      categories={years}
+      series={rateSeries}
+      title="粗死亡率 と 年齢調整死亡率（人口10万対、1950〜2024年）"
+      unit=""
+      tickEvery={4}
+    />
+    <LineChart
+      categories={ageCategories}
+      series={ageSeries}
+      title={`年齢階級別 がん死亡率（${cancer.byAge.year}年、人口10万対）`}
+      unit=""
+      tickEvery={2}
+    />
+  </Fragment>
+  <Content />
+</ArticleLayout>
