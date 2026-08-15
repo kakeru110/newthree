@@ -1,0 +1,338 @@
+{
+  "statsDataId": "0004026264",
+  "asOf": "2024年10月1日現在",
+  "comparedTo": "2023年10月1日現在",
+  "sourceUrl": "https://www.e-stat.go.jp/dbview?sid=0004026264",
+  "fetchedAt": "2026-08-15T05:51:42.982Z",
+  "prefectures": [
+    {
+      "code": "01000",
+      "pref": "北海道",
+      "population": 5042990,
+      "previousPopulation": 5092453,
+      "changeRate": -0.9713000787636135
+    },
+    {
+      "code": "02000",
+      "pref": "青森県",
+      "population": 1164684,
+      "previousPopulation": 1184374,
+      "changeRate": -1.6624816147602024
+    },
+    {
+      "code": "03000",
+      "pref": "岩手県",
+      "population": 1144960,
+      "previousPopulation": 1163212,
+      "changeRate": -1.5691034824262473
+    },
+    {
+      "code": "04000",
+      "pref": "宮城県",
+      "population": 2247907,
+      "previousPopulation": 2264433,
+      "changeRate": -0.729807417574289
+    },
+    {
+      "code": "05000",
+      "pref": "秋田県",
+      "population": 896535,
+      "previousPopulation": 913601,
+      "changeRate": -1.8679927014090394
+    },
+    {
+      "code": "06000",
+      "pref": "山形県",
+      "population": 1010908,
+      "previousPopulation": 1026207,
+      "changeRate": -1.4908298228330152
+    },
+    {
+      "code": "07000",
+      "pref": "福島県",
+      "population": 1742852,
+      "previousPopulation": 1766645,
+      "changeRate": -1.3467901021427622
+    },
+    {
+      "code": "08000",
+      "pref": "茨城県",
+      "population": 2806378,
+      "previousPopulation": 2824595,
+      "changeRate": -0.6449420182362428
+    },
+    {
+      "code": "09000",
+      "pref": "栃木県",
+      "population": 1884817,
+      "previousPopulation": 1897415,
+      "changeRate": -0.6639559611365989
+    },
+    {
+      "code": "10000",
+      "pref": "群馬県",
+      "population": 1889899,
+      "previousPopulation": 1901772,
+      "changeRate": -0.624312483305044
+    },
+    {
+      "code": "11000",
+      "pref": "埼玉県",
+      "population": 7331746,
+      "previousPopulation": 7331377,
+      "changeRate": 0.00503316089187611
+    },
+    {
+      "code": "12000",
+      "pref": "千葉県",
+      "population": 6251465,
+      "previousPopulation": 6256665,
+      "changeRate": -0.08311137003499468
+    },
+    {
+      "code": "13000",
+      "pref": "東京都",
+      "population": 14178273,
+      "previousPopulation": 14085890,
+      "changeRate": 0.6558549016072112
+    },
+    {
+      "code": "14000",
+      "pref": "神奈川県",
+      "population": 9224514,
+      "previousPopulation": 9228870,
+      "changeRate": -0.04719971134060833
+    },
+    {
+      "code": "15000",
+      "pref": "新潟県",
+      "population": 2098912,
+      "previousPopulation": 2126345,
+      "changeRate": -1.2901481180147154
+    },
+    {
+      "code": "16000",
+      "pref": "富山県",
+      "population": 996653,
+      "previousPopulation": 1006739,
+      "changeRate": -1.0018485426709405
+    },
+    {
+      "code": "17000",
+      "pref": "石川県",
+      "population": 1097873,
+      "previousPopulation": 1108957,
+      "changeRate": -0.9994977262418652
+    },
+    {
+      "code": "18000",
+      "pref": "福井県",
+      "population": 738708,
+      "previousPopulation": 744405,
+      "changeRate": -0.7653092066818465
+    },
+    {
+      "code": "19000",
+      "pref": "山梨県",
+      "population": 790820,
+      "previousPopulation": 795843,
+      "changeRate": -0.6311546372839869
+    },
+    {
+      "code": "20000",
+      "pref": "長野県",
+      "population": 1987036,
+      "previousPopulation": 2003918,
+      "changeRate": -0.8424496411529814
+    },
+    {
+      "code": "21000",
+      "pref": "岐阜県",
+      "population": 1915624,
+      "previousPopulation": 1931212,
+      "changeRate": -0.8071615130809047
+    },
+    {
+      "code": "22000",
+      "pref": "静岡県",
+      "population": 3526958,
+      "previousPopulation": 3555288,
+      "changeRate": -0.7968412123012256
+    },
+    {
+      "code": "23000",
+      "pref": "愛知県",
+      "population": 7459745,
+      "previousPopulation": 7476692,
+      "changeRate": -0.22666441255036318
+    },
+    {
+      "code": "24000",
+      "pref": "三重県",
+      "population": 1710563,
+      "previousPopulation": 1726812,
+      "changeRate": -0.9409825736675447
+    },
+    {
+      "code": "25000",
+      "pref": "滋賀県",
+      "population": 1402193,
+      "previousPopulation": 1406630,
+      "changeRate": -0.31543476251750635
+    },
+    {
+      "code": "26000",
+      "pref": "京都府",
+      "population": 2520101,
+      "previousPopulation": 2535224,
+      "changeRate": -0.5965153375007495
+    },
+    {
+      "code": "27000",
+      "pref": "大阪府",
+      "population": 8756875,
+      "previousPopulation": 8762857,
+      "changeRate": -0.06826540704703957
+    },
+    {
+      "code": "28000",
+      "pref": "兵庫県",
+      "population": 5337199,
+      "previousPopulation": 5369888,
+      "changeRate": -0.6087464021595981
+    },
+    {
+      "code": "29000",
+      "pref": "奈良県",
+      "population": 1285224,
+      "previousPopulation": 1295525,
+      "changeRate": -0.7951216688215202
+    },
+    {
+      "code": "30000",
+      "pref": "和歌山県",
+      "population": 879831,
+      "previousPopulation": 891820,
+      "changeRate": -1.3443295732322664
+    },
+    {
+      "code": "31000",
+      "pref": "鳥取県",
+      "population": 531213,
+      "previousPopulation": 537426,
+      "changeRate": -1.1560661374775318
+    },
+    {
+      "code": "32000",
+      "pref": "島根県",
+      "population": 642046,
+      "previousPopulation": 649563,
+      "changeRate": -1.157239559519246
+    },
+    {
+      "code": "33000",
+      "pref": "岡山県",
+      "population": 1831218,
+      "previousPopulation": 1846707,
+      "changeRate": -0.8387361936679723
+    },
+    {
+      "code": "34000",
+      "pref": "広島県",
+      "population": 2714260,
+      "previousPopulation": 2737848,
+      "changeRate": -0.8615525770605235
+    },
+    {
+      "code": "35000",
+      "pref": "山口県",
+      "population": 1281217,
+      "previousPopulation": 1297572,
+      "changeRate": -1.2604310203980973
+    },
+    {
+      "code": "36000",
+      "pref": "徳島県",
+      "population": 685454,
+      "previousPopulation": 694927,
+      "changeRate": -1.3631647640687439
+    },
+    {
+      "code": "37000",
+      "pref": "香川県",
+      "population": 916945,
+      "previousPopulation": 925588,
+      "changeRate": -0.9337847940984542
+    },
+    {
+      "code": "38000",
+      "pref": "愛媛県",
+      "population": 1275585,
+      "previousPopulation": 1291356,
+      "changeRate": -1.2212743813479783
+    },
+    {
+      "code": "39000",
+      "pref": "高知県",
+      "population": 656011,
+      "previousPopulation": 666422,
+      "changeRate": -1.5622233359642987
+    },
+    {
+      "code": "40000",
+      "pref": "福岡県",
+      "population": 5091862,
+      "previousPopulation": 5102730,
+      "changeRate": -0.21298403011721176
+    },
+    {
+      "code": "41000",
+      "pref": "佐賀県",
+      "population": 788357,
+      "previousPopulation": 794859,
+      "changeRate": -0.8180067156564875
+    },
+    {
+      "code": "42000",
+      "pref": "長崎県",
+      "population": 1251844,
+      "previousPopulation": 1267152,
+      "changeRate": -1.2080634367463414
+    },
+    {
+      "code": "43000",
+      "pref": "熊本県",
+      "population": 1697112,
+      "previousPopulation": 1708834,
+      "changeRate": -0.685964815774967
+    },
+    {
+      "code": "44000",
+      "pref": "大分県",
+      "population": 1085385,
+      "previousPopulation": 1096299,
+      "changeRate": -0.9955313285882774
+    },
+    {
+      "code": "45000",
+      "pref": "宮崎県",
+      "population": 1032973,
+      "previousPopulation": 1042223,
+      "changeRate": -0.8875259901191972
+    },
+    {
+      "code": "46000",
+      "pref": "鹿児島県",
+      "population": 1531736,
+      "previousPopulation": 1548744,
+      "changeRate": -1.0981802027965888
+    },
+    {
+      "code": "47000",
+      "pref": "沖縄県",
+      "population": 1466289,
+      "previousPopulation": 1467963,
+      "changeRate": -0.11403557174124962
+    }
+  ]
+}

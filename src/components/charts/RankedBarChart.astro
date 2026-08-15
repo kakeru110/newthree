@@ -1,0 +1,68 @@
+---
+interface Row {
+  pref: string;
+  value: number;
+  changeRate: number | null;
+}
+
+interface Props {
+  rows: Row[];
+  title: string;
+  unit: string;
+  deltaLabel: string;
+  legendNote: string;
+}
+
+const { rows, title, unit, deltaLabel, legendNote } = Astro.props;
+const chartId = `rbc-${Math.random().toString(36).slice(2, 9)}`;
+const sorted = [...rows].sort((a, b) => b.value - a.value);
+const max = sorted[0]?.value ?? 1;
+---
+
+<div class="rbc" id={chartId}>
+  <div class="rbc-title">{title}</div>
+
+  <div class="rbc-bars" data-bars>
+    {sorted.map((row) => (
+      <div class="rbc-row">
+        <div class="rbc-pref">{row.pref}</div>
+        <div class="rbc-track">
+          <div class="rbc-bar" style={`width:${(row.value / max) * 100}%`}></div>
+        </div>
+        <div class="rbc-valcell">
+          <span class="rbc-val">{row.value.toLocaleString('ja-JP')}{unit}</span>
+          {row.changeRate !== null && (
+            <span class={`rbc-delta ${row.changeRate > 0 ? 'good' : row.changeRate < 0 ? 'bad' : ''}`}>
+              {row.changeRate > 0 ? '+' : row.changeRate === 0 ? '±' : ''}{row.changeRate.toFixed(2)}%
+            </span>
+          )}
+        </div>
+      </div>
+    ))}
+  </div>
+  <div class="rbc-legend"><span class="rbc-swatch"></span>{legendNote}</div>
+</div>
+
+<style is:global>
+  .rbc {
+    border: 1px solid var(--border);
+    border-radius: 12px;
+    background: var(--surface-1);
+    padding: 20px;
+    overflow-x: auto;
+    margin: 20px 0;
+  }
+  .rbc-title { font-size: 13px; color: var(--text-muted); margin-bottom: 14px; }
+  .rbc-bars { min-width: 560px; }
+  .rbc-row { display: grid; grid-template-columns: 76px 1fr 150px; align-items: center; gap: 10px; padding: 2px 0; }
+  .rbc-pref { font-size: 12.5px; color: var(--text-secondary); text-align: right; white-space: nowrap; }
+  .rbc-track { position: relative; height: 24px; border-bottom: 1px solid var(--gridline); }
+  .rbc-bar { position: absolute; left: 0; top: 2px; height: 20px; background: var(--series-1); border-radius: 4px; min-width: 2px; }
+  .rbc-valcell { display: flex; align-items: baseline; gap: 8px; font-size: 12.5px; white-space: nowrap; }
+  .rbc-val { font-variant-numeric: tabular-nums; color: var(--text-primary); font-weight: 600; }
+  .rbc-delta { font-variant-numeric: tabular-nums; font-size: 11.5px; }
+  .rbc-delta.good { color: var(--delta-good); }
+  .rbc-delta.bad { color: var(--delta-bad); }
+  .rbc-legend { display: flex; align-items: center; gap: 6px; font-size: 12px; color: var(--text-muted); margin-top: 16px; }
+  .rbc-swatch { width: 10px; height: 10px; border-radius: 2px; background: var(--series-1); display: inline-block; }
+</style>
