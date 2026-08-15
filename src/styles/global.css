@@ -185,3 +185,35 @@ a { color: inherit; }
 }
 
 .source-note a { color: var(--series-1); }
+
+.glossary {
+  margin: 20px 0 28px;
+  padding: 16px 20px;
+  border: 1px solid var(--border);
+  border-radius: 10px;
+  background: var(--surface-1);
+}
+
+.glossary-title {
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: 0.02em;
+  color: var(--text-muted);
+  text-transform: uppercase;
+  margin: 0 0 12px;
+}
+
+.glossary dl { margin: 0; }
+.glossary dt {
+  font-size: 14px;
+  font-weight: 700;
+  color: var(--text-primary);
+  margin-top: 12px;
+}
+.glossary dt:first-child { margin-top: 0; }
+.glossary dd {
+  font-size: 13.5px;
+  color: var(--text-secondary);
+  line-height: 1.7;
+  margin: 3px 0 0;
+}
