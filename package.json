@@ -9,7 +9,8 @@
     "build": "astro build",
     "preview": "astro preview",
     "fetch:population": "node scripts/fetch-population.js",
-    "fetch:cancer-mortality": "node scripts/fetch-cancer-mortality.js"
+    "fetch:cancer-mortality": "node scripts/fetch-cancer-mortality.js",
+    "fetch:cancer-incidence": "node scripts/fetch-cancer-incidence.js"
   },
   "repository": {
     "type": "git",
@@ -23,6 +24,7 @@
   },
   "homepage": "https://github.com/kakeru110/newthree#readme",
   "dependencies": {
-    "astro": "^7.2.2"
+    "astro": "^7.2.2",
+    "xlsx": "^0.18.5"
   }
 }
