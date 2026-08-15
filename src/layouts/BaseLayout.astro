@@ -1,0 +1,42 @@
+---
+import '../styles/global.css';
+
+interface Props {
+  title: string;
+  description?: string;
+}
+
+const { title, description = '総務省などの公的統計データを、意味づけと解説つきで可視化するノート。' } = Astro.props;
+const base = import.meta.env.BASE_URL;
+---
+
+<!doctype html>
+<html lang="ja">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="description" content={description} />
+    <title>{title}</title>
+  </head>
+  <body>
+    <header class="site-header">
+      <div class="wrap">
+        <a class="site-title" href={base}>統計データノート</a>
+        <nav class="site-nav">
+          <a href={base}>ホーム</a>
+          <a href={`${base}categories/`}>カテゴリ</a>
+        </nav>
+      </div>
+    </header>
+
+    <main>
+      <slot />
+    </main>
+
+    <footer class="site-footer">
+      <div class="wrap">
+        本サイトは総務省統計局など公的機関が公表する統計データを、政府標準利用規約2.0（CC BY 4.0相当）に基づき加工・可視化した個人プロジェクトです。各記事に出典を明記しています。
+      </div>
+    </footer>
+  </body>
+</html>
