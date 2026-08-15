@@ -1,0 +1,37 @@
+---
+import { getCollection } from 'astro:content';
+import BaseLayout from '../layouts/BaseLayout.astro';
+
+const articles = (await getCollection('articles')).sort(
+  (a, b) => b.data.publishedDate.valueOf() - a.data.publishedDate.valueOf()
+);
+const base = import.meta.env.BASE_URL;
+
+const dateFmt = new Intl.DateTimeFormat('ja-JP', { year: 'numeric', month: 'long', day: 'numeric' });
+---
+
+<BaseLayout title="統計データノート">
+  <div class="wrap">
+    <p class="eyebrow">Open Government Data, Explained</p>
+    <h1 style="font-size: 26px; margin: 8px 0 6px;">統計データノート</h1>
+    <p style="color: var(--text-secondary); font-size: 14px; line-height: 1.7; max-width: 560px;">
+      総務省統計局などが公表する公的統計データを、ひとつずつ意味づけして可視化するノートです。
+      グラフを並べるだけでなく、何が読み取れるかの解説を添えています。
+    </p>
+
+    <div class="card-list">
+      {articles.map((article) => (
+        <a class="card" href={`${base}${article.data.href}`}>
+          <span class="tag">{article.data.category}</span>
+          <p class="card-title">{article.data.title}</p>
+          <p class="card-desc">{article.data.description}</p>
+          <div class="card-meta">
+            <span>{dateFmt.format(article.data.publishedDate)}</span>
+            <span>・</span>
+            <span>{article.data.dataAsOf}</span>
+          </div>
+        </a>
+      ))}
+    </div>
+  </div>
+</BaseLayout>
