@@ -8,7 +8,8 @@
     "dev": "astro dev",
     "build": "astro build",
     "preview": "astro preview",
-    "fetch:population": "node scripts/fetch-population.js"
+    "fetch:population": "node scripts/fetch-population.js",
+    "fetch:cancer-mortality": "node scripts/fetch-cancer-mortality.js"
   },
   "repository": {
     "type": "git",
