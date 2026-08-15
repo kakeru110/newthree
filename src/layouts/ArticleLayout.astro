@@ -1,5 +1,6 @@
 ---
 import BaseLayout from './BaseLayout.astro';
+import { withBase } from '../utils/url';
 
 interface Props {
   title: string;
@@ -11,13 +12,12 @@ interface Props {
 }
 
 const { title, description, category, dataAsOf, sourceName, sourceUrl } = Astro.props;
-const base = import.meta.env.BASE_URL;
 ---
 
 <BaseLayout title={`${title} | 統計データノート`} description={description}>
   <div class="wrap">
     <p class="eyebrow">
-      <a href={`${base}categories/${encodeURIComponent(category)}/`}>{category}</a>
+      <a href={withBase(`categories/${encodeURIComponent(category)}/`)}>{category}</a>
       ・{dataAsOf}
     </p>
     <h1 style="font-size: 26px; margin: 8px 0 20px;">{title}</h1>
