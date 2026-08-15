@@ -1,0 +1,36 @@
+---
+import { getEntry, render } from 'astro:content';
+import ArticleLayout from '../../layouts/ArticleLayout.astro';
+import RankedBarChart from '../../components/charts/RankedBarChart.astro';
+import population from '../../data/population.json';
+
+const entry = await getEntry('articles', 'jinkou-suikei-todofuken');
+if (!entry) throw new Error('article entry not found: jinkou-suikei-todofuken');
+const { Content } = await render(entry);
+
+const rows = population.prefectures.map((p) => ({
+  pref: p.pref,
+  value: p.population,
+  changeRate: p.changeRate,
+}));
+---
+
+<ArticleLayout
+  title={entry.data.title}
+  description={entry.data.description}
+  category={entry.data.category}
+  dataAsOf={entry.data.dataAsOf}
+  sourceName={entry.data.sourceName}
+  sourceUrl={entry.data.sourceUrl}
+>
+  <Fragment slot="chart">
+    <RankedBarChart
+      rows={rows}
+      title="都道府県別 総人口"
+      unit="人"
+      deltaLabel="前年比"
+      legendNote={`総人口（${population.asOf}）／右端の数値は${population.comparedTo}比の増減率`}
+    />
+  </Fragment>
+  <Content />
+</ArticleLayout>
