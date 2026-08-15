@@ -16,12 +16,15 @@ jobs:
       - uses: actions/setup-node@v4
         with:
           node-version: 22
+          cache: npm
+      - run: npm ci
       - run: npm run fetch:population
         env:
           ESTAT_APP_ID: ${{ secrets.ESTAT_APP_ID }}
       - run: npm run fetch:cancer-mortality
         env:
           ESTAT_APP_ID: ${{ secrets.ESTAT_APP_ID }}
+      - run: npm run fetch:cancer-incidence
       - name: Commit updated data if changed
         run: |
           if git diff --quiet -- src/data/; then

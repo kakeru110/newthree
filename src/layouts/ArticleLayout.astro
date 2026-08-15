@@ -2,16 +2,20 @@
 import BaseLayout from './BaseLayout.astro';
 import { withBase } from '../utils/url';
 
+interface Source {
+  name: string;
+  url: string;
+}
+
 interface Props {
   title: string;
   description: string;
   category: string;
   dataAsOf: string;
-  sourceName: string;
-  sourceUrl: string;
+  sources: Source[];
 }
 
-const { title, description, category, dataAsOf, sourceName, sourceUrl } = Astro.props;
+const { title, description, category, dataAsOf, sources } = Astro.props;
 ---
 
 <BaseLayout title={`${title} | 統計データノート`} description={description}>
@@ -29,7 +33,12 @@ const { title, description, category, dataAsOf, sourceName, sourceUrl } = Astro.
     </div>
 
     <div class="source-note">
-      出典：<a href={sourceUrl} target="_blank" rel="noopener noreferrer">{sourceName}</a>
+      出典：{sources.map((s, i) => (
+        <>
+          {i > 0 && '／'}
+          <a href={s.url} target="_blank" rel="noopener noreferrer">{s.name}</a>
+        </>
+      ))}
     </div>
   </div>
 </BaseLayout>

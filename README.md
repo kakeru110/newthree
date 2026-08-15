@@ -29,11 +29,13 @@ npm run preview  # ビルド結果をローカル確認
 
 カテゴリページは記事のfrontmatterから自動生成されるため、新しいカテゴリ名を使うだけで一覧に反映される。
 
-## e-Stat APIからのデータ取得
+## データ取得
 
 `ESTAT_APP_ID` 環境変数（[e-Statで無料発行](https://www.e-stat.go.jp/mypage/user/preregister)したアプリケーションID）を使い、`npm run fetch:population` のようなスクリプトで統計データを取得して `src/data/` にJSONとして保存する。ビルド時にAstroページから直接importして使う。
 
-新しいデータセットを追加するには `scripts/fetch-population.js` を参考に `scripts/fetch-<データ名>.js` を作り、`package.json` にnpm scriptを追加し、`.github/workflows/update-data.yml` にステップを追記する。
+e-Stat以外の公的機関（例：国立がん研究センターが公開するExcelファイル）が出典の場合も同じパターンで、APIキー不要なら `fetch-cancer-incidence.js` のように直接ダウンロード＋パースするスクリプトにする。
+
+新しいデータセットを追加するには `scripts/fetch-*.js` を参考にスクリプトを作り、`package.json` にnpm scriptを追加し、`.github/workflows/update-data.yml` にステップを追記する。
 
 CIでは `ESTAT_APP_ID` をリポジトリのSecrets（Settings → Secrets and variables → Actions）に登録して使う。
 

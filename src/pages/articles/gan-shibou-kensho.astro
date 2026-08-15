@@ -3,6 +3,7 @@ import { getEntry, render } from 'astro:content';
 import ArticleLayout from '../../layouts/ArticleLayout.astro';
 import LineChart from '../../components/charts/LineChart.astro';
 import cancer from '../../data/cancer-mortality.json';
+import incidence from '../../data/cancer-incidence.json';
 
 const entry = await getEntry('articles', 'gan-shibou-kensho');
 if (!entry) throw new Error('article entry not found: gan-shibou-kensho');
@@ -38,6 +39,29 @@ const ageSeries = [
   },
 ];
 const ageCategories = cancer.byAge.rows.map((r) => r.age);
+
+const incidenceYears = incidence.crude.map((d) => String(d.year));
+const incidenceCrudeByYear = new Map(incidence.crude.map((d) => [d.year, d.rate]));
+const incidenceMaleByYear = new Map(incidence.ageAdjusted.male.map((d) => [d.year, d.rate]));
+const incidenceFemaleByYear = new Map(incidence.ageAdjusted.female.map((d) => [d.year, d.rate]));
+
+const incidenceSeries = [
+  {
+    name: '粗罹患率(年齢調整なし)',
+    colorSlot: 1 as const,
+    values: incidence.crude.map((d) => incidenceCrudeByYear.get(d.year) ?? null),
+  },
+  {
+    name: '年齢調整罹患率(男)',
+    colorSlot: 2 as const,
+    values: incidence.crude.map((d) => incidenceMaleByYear.get(d.year) ?? null),
+  },
+  {
+    name: '年齢調整罹患率(女)',
+    colorSlot: 3 as const,
+    values: incidence.crude.map((d) => incidenceFemaleByYear.get(d.year) ?? null),
+  },
+];
 ---
 
 <ArticleLayout
@@ -45,8 +69,10 @@ const ageCategories = cancer.byAge.rows.map((r) => r.age);
   description={entry.data.description}
   category={entry.data.category}
   dataAsOf={entry.data.dataAsOf}
-  sourceName={entry.data.sourceName}
-  sourceUrl={entry.data.sourceUrl}
+  sources={[
+    { name: entry.data.sourceName, url: entry.data.sourceUrl },
+    { name: '国立がん研究センター「がん情報サービス」全国がん登録', url: incidence.sourceUrl },
+  ]}
 >
   <Fragment slot="chart">
     <LineChart
@@ -62,6 +88,13 @@ const ageCategories = cancer.byAge.rows.map((r) => r.age);
       title={`年齢階級別 がん死亡率（${cancer.byAge.year}年、人口10万対）`}
       unit=""
       tickEvery={2}
+    />
+    <LineChart
+      categories={incidenceYears}
+      series={incidenceSeries}
+      title="粗罹患率 と 年齢調整罹患率（人口10万対、1985〜2023年）"
+      unit=""
+      tickEvery={4}
     />
   </Fragment>
   <Content />
