@@ -24,6 +24,7 @@
   },
   "homepage": "https://github.com/kakeru110/newthree#readme",
   "dependencies": {
+    "@astrojs/mdx": "^7.0.5",
     "astro": "^7.2.2",
     "xlsx": "^0.18.5"
   }

@@ -10,6 +10,64 @@ dataAsOf: "2024年（確定数）／年齢調整死亡率は平成27年モデル
 href: "articles/gan-shibou-kensho/"
 ---
 
+import LineChart from '../../components/charts/LineChart.astro';
+import cancer from '../../data/cancer-mortality.json';
+import incidence from '../../data/cancer-incidence.json';
+
+export const mortalityYears = cancer.crude.map((d) => String(d.year));
+export const crudeByYear = new Map(cancer.crude.map((d) => [d.year, d.rate]));
+export const adjustedByYear = new Map(cancer.ageAdjusted.map((d) => [d.year, d]));
+
+export const mortalitySeries = [
+  {
+    name: '粗死亡率(年齢調整なし)',
+    colorSlot: 1,
+    values: cancer.crude.map((d) => crudeByYear.get(d.year) ?? null),
+  },
+  {
+    name: '年齢調整死亡率(男)',
+    colorSlot: 2,
+    values: cancer.crude.map((d) => adjustedByYear.get(d.year)?.male ?? null),
+  },
+  {
+    name: '年齢調整死亡率(女)',
+    colorSlot: 3,
+    values: cancer.crude.map((d) => adjustedByYear.get(d.year)?.female ?? null),
+  },
+];
+
+export const ageSeries = [
+  {
+    name: `がん死亡率(${cancer.byAge.year}年)`,
+    colorSlot: 1,
+    values: cancer.byAge.rows.map((r) => r.rate),
+  },
+];
+export const ageCategories = cancer.byAge.rows.map((r) => r.age);
+
+export const incidenceYears = incidence.crude.map((d) => String(d.year));
+export const incidenceCrudeByYear = new Map(incidence.crude.map((d) => [d.year, d.rate]));
+export const incidenceMaleByYear = new Map(incidence.ageAdjusted.male.map((d) => [d.year, d.rate]));
+export const incidenceFemaleByYear = new Map(incidence.ageAdjusted.female.map((d) => [d.year, d.rate]));
+
+export const incidenceSeries = [
+  {
+    name: '粗罹患率(年齢調整なし)',
+    colorSlot: 1,
+    values: incidence.crude.map((d) => incidenceCrudeByYear.get(d.year) ?? null),
+  },
+  {
+    name: '年齢調整罹患率(男)',
+    colorSlot: 2,
+    values: incidence.crude.map((d) => incidenceMaleByYear.get(d.year) ?? null),
+  },
+  {
+    name: '年齢調整罹患率(女)',
+    colorSlot: 3,
+    values: incidence.crude.map((d) => incidenceFemaleByYear.get(d.year) ?? null),
+  },
+];
+
 「がん患者・がん死亡者が増えている」というニュースをよく見かけます。これは事実です。悪性新生物（がん）による死亡数は1950年の64,428人から2024年には384,111人と、約6倍に増えました。死亡率（人口10万人あたり）で見ても77.4から319.3と、約4倍です。
 
 ただし、この数字だけで「がんになりやすい時代になった」と結論づけるのは早計です。理由は単純で、**高齢者の方が絶対数として多くなり、しかも高齢者ほどがんで亡くなりやすいから**です。この2つの効果を分けて見る必要があります。
@@ -36,15 +94,41 @@ href: "articles/gan-shibou-kensho/"
 
 そこで使うのが「年齢調整死亡率」です。これは、年齢構成が変化しないと仮定した場合の死亡率で、高齢化そのものの影響を取り除いた指標です。下のグラフで、粗死亡率（年齢調整なし）と年齢調整死亡率（男女別）を重ねてみます。
 
+<LineChart
+  categories={mortalityYears}
+  series={mortalitySeries}
+  title="粗死亡率 と 年齢調整死亡率（人口10万対、1950〜2024年）"
+  unit=""
+  tickEvery={4}
+/>
+
 粗死亡率は一貫して右肩上がりですが、年齢調整死亡率は男女とも1995年前後をピークに、その後は下がり続けています。2024年の年齢調整死亡率（男性372.6、女性193.0）は、ピーク時の1995年（男性537.7、女性244.6）よりもはっきりと低い水準です。つまり、**同じ年齢の人を比較した場合、がんで亡くなるリスクはこの30年でむしろ下がっている**ことになります。検診の普及、治療技術の向上、喫煙率の低下などが背景にあると考えられます。
 
 ## なぜ高齢化だけで説明できるのか
 
-年齢階級別のがん死亡率（2024年）を見ると、その理由がよく分かります。5〜9歳では10万人あたり1.8人ですが、85〜89歳では1646.1人と、年齢が上がるにつれて指数関数的に増加しています。日本は平均寿命が延び、高齢者人口そのものが急増しているため、たとえ「同じ年齢での罹患・死亡のしやすさ」が変わらなくても、社会全体の死亡数は自然に増えていきます。
+年齢階級別のがん死亡率（2024年）を見ると、その理由がよく分かります。
+
+<LineChart
+  categories={ageCategories}
+  series={ageSeries}
+  title={`年齢階級別 がん死亡率（${cancer.byAge.year}年、人口10万対）`}
+  unit=""
+  tickEvery={2}
+/>
+
+5〜9歳では10万人あたり1.8人ですが、85〜89歳では1646.1人と、年齢が上がるにつれて指数関数的に増加しています。日本は平均寿命が延び、高齢者人口そのものが急増しているため、たとえ「同じ年齢での罹患・死亡のしやすさ」が変わらなくても、社会全体の死亡数は自然に増えていきます。
 
 ## 罹患数（がんと診断される数）ではどうか
 
 死亡率だけでは片手落ちです。治療成績が上がれば、がんになった人が増えなくても死亡率は下がります。そこで国立がん研究センターの「全国がん登録」データで、がんと診断された罹患数・罹患率も見てみます。
+
+<LineChart
+  categories={incidenceYears}
+  series={incidenceSeries}
+  title="粗罹患率 と 年齢調整罹患率（人口10万対、1985〜2023年）"
+  unit=""
+  tickEvery={4}
+/>
 
 罹患数は1985年の12,279件から2023年には27,270件と、こちらも増加しています。粗罹患率（人口10万対）は334.3から897.6と、死亡率以上に大きく伸びています。年齢調整罹患率（男女計）も288.8から374.4へと、死亡率とは違って**低下していません**。ここだけ見ると「やはりがんになりやすくなっている」ように見えます。
 
