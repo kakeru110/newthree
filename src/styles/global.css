@@ -186,34 +186,24 @@ a { color: inherit; }
 
 .source-note a { color: var(--series-1); }
 
-.glossary {
-  margin: 20px 0 28px;
-  padding: 16px 20px;
-  border: 1px solid var(--border);
-  border-radius: 10px;
+.term-note {
+  margin: 12px 0 20px;
+  padding: 8px 14px;
+  border-left: 3px solid var(--series-1);
   background: var(--surface-1);
+  border-radius: 0 6px 6px 0;
 }
 
-.glossary-title {
-  font-size: 12px;
-  font-weight: 700;
-  letter-spacing: 0.02em;
-  color: var(--text-muted);
-  text-transform: uppercase;
-  margin: 0 0 12px;
-}
-
-.glossary dl { margin: 0; }
-.glossary dt {
-  font-size: 14px;
-  font-weight: 700;
-  color: var(--text-primary);
-  margin-top: 12px;
-}
-.glossary dt:first-child { margin-top: 0; }
-.glossary dd {
-  font-size: 13.5px;
+.term-note p {
+  font-size: 12.5px;
   color: var(--text-secondary);
-  line-height: 1.7;
-  margin: 3px 0 0;
+  line-height: 1.6;
+  margin: 4px 0;
+}
+.term-note p:first-child { margin-top: 0; }
+.term-note p:last-child { margin-bottom: 0; }
+
+.term-note b {
+  color: var(--text-primary);
+  font-weight: 700;
 }
