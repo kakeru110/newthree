@@ -1,67 +1,11 @@
 ---
 import { getEntry, render } from 'astro:content';
 import ArticleLayout from '../../layouts/ArticleLayout.astro';
-import LineChart from '../../components/charts/LineChart.astro';
-import cancer from '../../data/cancer-mortality.json';
 import incidence from '../../data/cancer-incidence.json';
 
 const entry = await getEntry('articles', 'gan-shibou-kensho');
 if (!entry) throw new Error('article entry not found: gan-shibou-kensho');
 const { Content } = await render(entry);
-
-const years = cancer.crude.map((d) => String(d.year));
-const crudeByYear = new Map(cancer.crude.map((d) => [d.year, d.rate]));
-const adjustedByYear = new Map(cancer.ageAdjusted.map((d) => [d.year, d]));
-
-const rateSeries = [
-  {
-    name: '粗死亡率(年齢調整なし)',
-    colorSlot: 1 as const,
-    values: cancer.crude.map((d) => crudeByYear.get(d.year) ?? null),
-  },
-  {
-    name: '年齢調整死亡率(男)',
-    colorSlot: 2 as const,
-    values: cancer.crude.map((d) => adjustedByYear.get(d.year)?.male ?? null),
-  },
-  {
-    name: '年齢調整死亡率(女)',
-    colorSlot: 3 as const,
-    values: cancer.crude.map((d) => adjustedByYear.get(d.year)?.female ?? null),
-  },
-];
-
-const ageSeries = [
-  {
-    name: `がん死亡率(${cancer.byAge.year}年)`,
-    colorSlot: 1 as const,
-    values: cancer.byAge.rows.map((r) => r.rate),
-  },
-];
-const ageCategories = cancer.byAge.rows.map((r) => r.age);
-
-const incidenceYears = incidence.crude.map((d) => String(d.year));
-const incidenceCrudeByYear = new Map(incidence.crude.map((d) => [d.year, d.rate]));
-const incidenceMaleByYear = new Map(incidence.ageAdjusted.male.map((d) => [d.year, d.rate]));
-const incidenceFemaleByYear = new Map(incidence.ageAdjusted.female.map((d) => [d.year, d.rate]));
-
-const incidenceSeries = [
-  {
-    name: '粗罹患率(年齢調整なし)',
-    colorSlot: 1 as const,
-    values: incidence.crude.map((d) => incidenceCrudeByYear.get(d.year) ?? null),
-  },
-  {
-    name: '年齢調整罹患率(男)',
-    colorSlot: 2 as const,
-    values: incidence.crude.map((d) => incidenceMaleByYear.get(d.year) ?? null),
-  },
-  {
-    name: '年齢調整罹患率(女)',
-    colorSlot: 3 as const,
-    values: incidence.crude.map((d) => incidenceFemaleByYear.get(d.year) ?? null),
-  },
-];
 ---
 
 <ArticleLayout
@@ -74,28 +18,5 @@ const incidenceSeries = [
     { name: '国立がん研究センター「がん情報サービス」全国がん登録', url: incidence.sourceUrl },
   ]}
 >
-  <Fragment slot="chart">
-    <LineChart
-      categories={years}
-      series={rateSeries}
-      title="粗死亡率 と 年齢調整死亡率（人口10万対、1950〜2024年）"
-      unit=""
-      tickEvery={4}
-    />
-    <LineChart
-      categories={ageCategories}
-      series={ageSeries}
-      title={`年齢階級別 がん死亡率（${cancer.byAge.year}年、人口10万対）`}
-      unit=""
-      tickEvery={2}
-    />
-    <LineChart
-      categories={incidenceYears}
-      series={incidenceSeries}
-      title="粗罹患率 と 年齢調整罹患率（人口10万対、1985〜2023年）"
-      unit=""
-      tickEvery={4}
-    />
-  </Fragment>
   <Content />
 </ArticleLayout>
