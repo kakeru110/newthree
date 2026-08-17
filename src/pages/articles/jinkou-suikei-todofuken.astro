@@ -21,6 +21,7 @@ const rows = population.prefectures.map((p) => ({
   category={entry.data.category}
   dataAsOf={entry.data.dataAsOf}
   sources={[{ name: entry.data.sourceName, url: entry.data.sourceUrl }]}
+  publishedDate={entry.data.publishedDate}
 >
   <Fragment slot="chart">
     <RankedBarChart

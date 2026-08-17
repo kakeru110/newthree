@@ -13,18 +13,42 @@ interface Props {
   category: string;
   dataAsOf: string;
   sources: Source[];
+  publishedDate: Date;
+  updatedDate?: Date;
 }
 
-const { title, description, category, dataAsOf, sources } = Astro.props;
+const { title, description, category, dataAsOf, sources, publishedDate, updatedDate } = Astro.props;
+
+const dateFmt = new Intl.DateTimeFormat('ja-JP', { year: 'numeric', month: 'long', day: 'numeric' });
+
+const articleJsonLd = {
+  '@context': 'https://schema.org',
+  '@type': 'Article',
+  headline: title,
+  description,
+  datePublished: publishedDate.toISOString(),
+  dateModified: (updatedDate ?? publishedDate).toISOString(),
+  inLanguage: 'ja',
+  isPartOf: { '@type': 'WebSite', name: '統計読解室' },
+  citation: sources.map((s) => ({ '@type': 'CreativeWork', name: s.name, url: s.url })),
+};
 ---
 
-<BaseLayout title={`${title} | 統計読解室`} description={description}>
+<BaseLayout
+  title={`${title} | 統計読解室`}
+  description={description}
+  type="article"
+  publishedDate={publishedDate}
+  modifiedDate={updatedDate}
+>
+  <script type="application/ld+json" set:html={JSON.stringify(articleJsonLd)} />
   <div class="wrap">
     <p class="eyebrow">
       <a href={withBase(`categories/${encodeURIComponent(category)}/`)}>{category}</a>
       ・{dataAsOf}
     </p>
-    <h1 style="font-size: 26px; margin: 8px 0 20px;">{title}</h1>
+    <h1 style="font-size: 26px; margin: 8px 0 10px;">{title}</h1>
+    <p class="dateline">{dateFmt.format(publishedDate)}公開{updatedDate && ` ／ ${dateFmt.format(updatedDate)}更新`}</p>
 
     <slot name="chart" />
 

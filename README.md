@@ -46,3 +46,11 @@ CIでは `ESTAT_APP_ID` をリポジトリのSecrets（Settings → Secrets and 
 ## 出典について
 
 各記事は政府標準利用規約2.0（CC BY 4.0相当）に基づき、公的統計データを加工・可視化したもの。出典は各記事ページ下部に明記。
+
+## SEO / OGP
+
+- `astro.config.mjs` に `@astrojs/sitemap` を導入済み。ビルドすると `sitemap-index.xml` が自動生成される
+- `public/robots.txt` でsitemapを参照
+- `src/layouts/BaseLayout.astro` で全ページ共通のOGP・Twitter Card・canonical・faviconを出力。記事ページは `src/layouts/ArticleLayout.astro` がJSON-LD（Article）も追加で出力する
+- OG画像は `public/og-default.png`（全ページ共通の1枚）。記事ごとに差し替えたい場合は `ArticleLayout` の `image` propを使って個別画像を渡せる
+- ブランドの見た目（favicon・OG画像）を作り直す場合は、`public/favicon.svg` を編集し、OG画像は同じデザインをHTMLで組んでPlaywrightでスクリーンショットして作るのが手早い
