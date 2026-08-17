@@ -17,6 +17,7 @@ const { Content } = await render(entry);
     { name: entry.data.sourceName, url: entry.data.sourceUrl },
     { name: '国立がん研究センター「がん情報サービス」全国がん登録', url: incidence.sourceUrl },
   ]}
+  publishedDate={entry.data.publishedDate}
 >
   <Content />
 </ArticleLayout>

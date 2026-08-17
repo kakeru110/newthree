@@ -69,6 +69,7 @@ const rows = raw.map(([pref, estab, estabShare, emp, empShare, estabGrowth, empG
   category={entry.data.category}
   dataAsOf={entry.data.dataAsOf}
   sources={[{ name: entry.data.sourceName, url: entry.data.sourceUrl }]}
+  publishedDate={entry.data.publishedDate}
 >
   <Fragment slot="chart">
     <PrefectureBarChart

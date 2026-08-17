@@ -10,13 +10,13 @@ const articles = (await getCollection('articles')).sort(
 const dateFmt = new Intl.DateTimeFormat('ja-JP', { year: 'numeric', month: 'long', day: 'numeric' });
 ---
 
-<BaseLayout title="統計読解室">
+<BaseLayout title="統計読解室" description="その数字、本当にそう言えますか。総務省・厚生労働省などの公的統計を、年齢調整や集計方法の違いまで確かめて読み解くサイトです。">
   <div class="wrap">
-    <p class="eyebrow">Open Government Data, Explained</p>
-    <h1 style="font-size: 26px; margin: 8px 0 6px;">統計読解室</h1>
-    <p style="color: var(--text-secondary); font-size: 14px; line-height: 1.7; max-width: 560px;">
-      総務省統計局などが公表する公的統計データを、ひとつずつ読み解いて可視化するサイトです。
-      グラフを並べるだけでなく、何が読み取れるかの解説を添えています。
+    <p class="dateline">STATISTICS, VERIFIED — 公的統計を検証する</p>
+    <h1 style="font-size: 32px; line-height: 1.4; margin: 10px 0 14px;">その数字、本当にそう言えますか。</h1>
+    <p style="color: var(--text-secondary); font-size: 14px; line-height: 1.8; max-width: 560px;">
+      総務省・厚生労働省・国立がん研究センターなどが公表する統計を、粗い数字の裏側まで確かめるサイトです。
+      年齢調整、登録制度の変化、集計方法の違い——見出しだけでは分からない前提を、ひとつずつ検証しています。
     </p>
 
     <div class="card-list">
