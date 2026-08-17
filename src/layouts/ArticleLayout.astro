@@ -18,7 +18,7 @@ interface Props {
 const { title, description, category, dataAsOf, sources } = Astro.props;
 ---
 
-<BaseLayout title={`${title} | 統計データノート`} description={description}>
+<BaseLayout title={`${title} | 統計読解室`} description={description}>
   <div class="wrap">
     <p class="eyebrow">
       <a href={withBase(`categories/${encodeURIComponent(category)}/`)}>{category}</a>

@@ -21,7 +21,7 @@ const { articles } = Astro.props;
 const dateFmt = new Intl.DateTimeFormat('ja-JP', { year: 'numeric', month: 'long', day: 'numeric' });
 ---
 
-<BaseLayout title={`${category} | 統計データノート`}>
+<BaseLayout title={`${category} | 統計読解室`}>
   <div class="wrap">
     <p class="eyebrow"><a href={withBase('categories/')}>カテゴリ</a> ・ {category}</p>
     <h1 style="font-size: 24px; margin: 8px 0 20px;">{category}</h1>
