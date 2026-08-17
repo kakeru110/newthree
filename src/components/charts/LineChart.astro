@@ -3,6 +3,7 @@ interface Series {
   name: string;
   values: (number | null)[];
   colorSlot?: 1 | 2 | 3;
+  dash?: boolean;
 }
 
 interface Props {
@@ -43,7 +44,7 @@ const paths = series.map((s) => {
   const pts = s.values
     .map((v, i) => (v === null ? null : `${xPos(i)},${yPos(v)}`))
     .filter((p): p is string => p !== null);
-  return { name: s.name, d: 'M ' + pts.join(' L '), colorVar: colorVar(s.colorSlot) };
+  return { name: s.name, d: 'M ' + pts.join(' L '), colorVar: colorVar(s.colorSlot), dash: s.dash };
 });
 
 const yTicks = 4;
@@ -57,7 +58,10 @@ const yTickValues = Array.from({ length: yTicks + 1 }, (_, i) => (niceMax / yTic
     <div class="lc-legend">
       {series.map((s) => (
         <span class="lc-legend-item">
-          <span class="lc-swatch" style={`background:var(${colorVar(s.colorSlot)})`}></span>
+          <span
+            class="lc-swatch"
+            style={`border-top-color:var(${colorVar(s.colorSlot)});border-top-style:${s.dash ? 'dashed' : 'solid'}`}
+          ></span>
           {s.name}
         </span>
       ))}
@@ -82,7 +86,15 @@ const yTickValues = Array.from({ length: yTicks + 1 }, (_, i) => (niceMax / yTic
       ))}
 
       {paths.map((p) => (
-        <path d={p.d} fill="none" stroke={`var(${p.colorVar})`} stroke-width="2" stroke-linejoin="round" stroke-linecap="round" />
+        <path
+          d={p.d}
+          fill="none"
+          stroke={`var(${p.colorVar})`}
+          stroke-width="2"
+          stroke-linejoin="round"
+          stroke-linecap="round"
+          stroke-dasharray={p.dash ? '7 4' : undefined}
+        />
       ))}
 
       {series.map((s) => {
@@ -113,7 +125,7 @@ const yTickValues = Array.from({ length: yTicks + 1 }, (_, i) => (niceMax / yTic
   .lc-title { font-size: 13px; color: var(--text-muted); margin-bottom: 10px; }
   .lc-legend { display: flex; gap: 16px; margin-bottom: 10px; }
   .lc-legend-item { display: inline-flex; align-items: center; gap: 6px; font-size: 12.5px; color: var(--text-secondary); }
-  .lc-swatch { width: 10px; height: 10px; border-radius: 2px; display: inline-block; }
+  .lc-swatch { width: 16px; height: 0; border-top-width: 2.5px; border-top-style: solid; display: inline-block; }
   .lc-svgwrap { position: relative; }
   .lc-svg { width: 100%; height: auto; display: block; overflow: visible; }
   .lc-grid { stroke: var(--gridline); stroke-width: 1; }
