@@ -7,7 +7,7 @@ interface Props {
   description?: string;
 }
 
-const { title, description = '総務省などの公的統計データを、意味づけと解説つきで可視化するノート。' } = Astro.props;
+const { title, description = '総務省などの公的統計データを、数字の裏側まで読み解いて可視化するサイト。' } = Astro.props;
 ---
 
 <!doctype html>
@@ -21,7 +21,7 @@ const { title, description = '総務省などの公的統計データを、意�
   <body>
     <header class="site-header">
       <div class="wrap">
-        <a class="site-title" href={withBase('')}>統計データノート</a>
+        <a class="site-title" href={withBase('')}>統計読解室</a>
         <nav class="site-nav">
           <a href={withBase('')}>ホーム</a>
           <a href={withBase('categories/')}>カテゴリ</a>

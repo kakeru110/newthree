@@ -10,12 +10,12 @@ const articles = (await getCollection('articles')).sort(
 const dateFmt = new Intl.DateTimeFormat('ja-JP', { year: 'numeric', month: 'long', day: 'numeric' });
 ---
 
-<BaseLayout title="統計データノート">
+<BaseLayout title="統計読解室">
   <div class="wrap">
     <p class="eyebrow">Open Government Data, Explained</p>
-    <h1 style="font-size: 26px; margin: 8px 0 6px;">統計データノート</h1>
+    <h1 style="font-size: 26px; margin: 8px 0 6px;">統計読解室</h1>
     <p style="color: var(--text-secondary); font-size: 14px; line-height: 1.7; max-width: 560px;">
-      総務省統計局などが公表する公的統計データを、ひとつずつ意味づけして可視化するノートです。
+      総務省統計局などが公表する公的統計データを、ひとつずつ読み解いて可視化するサイトです。
       グラフを並べるだけでなく、何が読み取れるかの解説を添えています。
     </p>
 
