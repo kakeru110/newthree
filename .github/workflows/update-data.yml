@@ -25,6 +25,9 @@ jobs:
         env:
           ESTAT_APP_ID: ${{ secrets.ESTAT_APP_ID }}
       - run: npm run fetch:cancer-incidence
+      - run: npm run fetch:height
+        env:
+          ESTAT_APP_ID: ${{ secrets.ESTAT_APP_ID }}
       - name: Commit updated data if changed
         run: |
           if git diff --quiet -- src/data/; then

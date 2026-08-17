@@ -1,0 +1,19 @@
+---
+import { getEntry, render } from 'astro:content';
+import ArticleLayout from '../../layouts/ArticleLayout.astro';
+
+const entry = await getEntry('articles', 'todofuken-shincho');
+if (!entry) throw new Error('article entry not found: todofuken-shincho');
+const { Content } = await render(entry);
+---
+
+<ArticleLayout
+  title={entry.data.title}
+  description={entry.data.description}
+  category={entry.data.category}
+  dataAsOf={entry.data.dataAsOf}
+  sources={[{ name: entry.data.sourceName, url: entry.data.sourceUrl }]}
+  publishedDate={entry.data.publishedDate}
+>
+  <Content />
+</ArticleLayout>

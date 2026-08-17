@@ -1,0 +1,802 @@
+{
+  "sourceUrl": "https://www.e-stat.go.jp/stat-search/database?statdisp_id=0003146482",
+  "fetchedAt": "2026-08-17T12:30:07.776Z",
+  "ageGroup": "17歳(高等学校)",
+  "trend": [
+    {
+      "year": 1900,
+      "male": 157.9,
+      "female": 147
+    },
+    {
+      "year": 1901,
+      "male": 159.1,
+      "female": 146.4
+    },
+    {
+      "year": 1902,
+      "male": 158.2,
+      "female": 147.6
+    },
+    {
+      "year": 1903,
+      "male": 158.2,
+      "female": 147.6
+    },
+    {
+      "year": 1904,
+      "male": 158.5,
+      "female": 147.9
+    },
+    {
+      "year": 1905,
+      "male": 159.1,
+      "female": 147.9
+    },
+    {
+      "year": 1906,
+      "male": 159.1,
+      "female": 147.6
+    },
+    {
+      "year": 1907,
+      "male": 158.8,
+      "female": 148.5
+    },
+    {
+      "year": 1908,
+      "male": 159.1,
+      "female": 149.1
+    },
+    {
+      "year": 1909,
+      "male": 159.4,
+      "female": 148.5
+    },
+    {
+      "year": 1910,
+      "male": 159.1,
+      "female": 148.8
+    },
+    {
+      "year": 1911,
+      "male": 159.4,
+      "female": 149.1
+    },
+    {
+      "year": 1912,
+      "male": 159.4,
+      "female": 148.5
+    },
+    {
+      "year": 1913,
+      "male": 159.4,
+      "female": 148.5
+    },
+    {
+      "year": 1914,
+      "male": 159.7,
+      "female": 149.1
+    },
+    {
+      "year": 1915,
+      "male": 159.7,
+      "female": 149.1
+    },
+    {
+      "year": 1916,
+      "male": 160,
+      "female": 149.1
+    },
+    {
+      "year": 1917,
+      "male": 160,
+      "female": 149.1
+    },
+    {
+      "year": 1918,
+      "male": 160,
+      "female": 149.4
+    },
+    {
+      "year": 1919,
+      "male": 160,
+      "female": 149.4
+    },
+    {
+      "year": 1920,
+      "male": 160,
+      "female": 149.7
+    },
+    {
+      "year": 1922,
+      "male": 160.3,
+      "female": 149.1
+    },
+    {
+      "year": 1923,
+      "male": 160.6,
+      "female": 149.7
+    },
+    {
+      "year": 1924,
+      "male": 160.3,
+      "female": 150
+    },
+    {
+      "year": 1925,
+      "male": 160.6,
+      "female": 150.3
+    },
+    {
+      "year": 1926,
+      "male": 160.6,
+      "female": 150.3
+    },
+    {
+      "year": 1927,
+      "male": 160.7,
+      "female": 150.6
+    },
+    {
+      "year": 1928,
+      "male": 160.8,
+      "female": 150.6
+    },
+    {
+      "year": 1929,
+      "male": 161.1,
+      "female": 150.6
+    },
+    {
+      "year": 1930,
+      "male": 161,
+      "female": 150.7
+    },
+    {
+      "year": 1931,
+      "male": 161.3,
+      "female": 151.2
+    },
+    {
+      "year": 1932,
+      "male": 161.7,
+      "female": 151.2
+    },
+    {
+      "year": 1933,
+      "male": 161.7,
+      "female": 151.1
+    },
+    {
+      "year": 1934,
+      "male": 162.1,
+      "female": 151.2
+    },
+    {
+      "year": 1935,
+      "male": 161.8,
+      "female": 151.2
+    },
+    {
+      "year": 1936,
+      "male": 162,
+      "female": 151.8
+    },
+    {
+      "year": 1937,
+      "male": 161,
+      "female": 150.9
+    },
+    {
+      "year": 1938,
+      "male": 162.3,
+      "female": 152.6
+    },
+    {
+      "year": 1939,
+      "male": 162.5,
+      "female": 152.5
+    },
+    {
+      "year": 1948,
+      "male": 160.6,
+      "female": 152.1
+    },
+    {
+      "year": 1949,
+      "male": 161.2,
+      "female": 152.3
+    },
+    {
+      "year": 1950,
+      "male": 161.8,
+      "female": 152.7
+    },
+    {
+      "year": 1951,
+      "male": 162.2,
+      "female": 152.5
+    },
+    {
+      "year": 1952,
+      "male": 162.6,
+      "female": 152.8
+    },
+    {
+      "year": 1953,
+      "male": 162.9,
+      "female": 153
+    },
+    {
+      "year": 1954,
+      "male": 163.2,
+      "female": 153
+    },
+    {
+      "year": 1955,
+      "male": 163.4,
+      "female": 153.2
+    },
+    {
+      "year": 1956,
+      "male": 163.7,
+      "female": 153.2
+    },
+    {
+      "year": 1957,
+      "male": 163.9,
+      "female": 153.3
+    },
+    {
+      "year": 1958,
+      "male": 164.3,
+      "female": 153.5
+    },
+    {
+      "year": 1959,
+      "male": 164.5,
+      "female": 153.6
+    },
+    {
+      "year": 1960,
+      "male": 165,
+      "female": 153.7
+    },
+    {
+      "year": 1961,
+      "male": 165.2,
+      "female": 154
+    },
+    {
+      "year": 1962,
+      "male": 165.6,
+      "female": 154
+    },
+    {
+      "year": 1963,
+      "male": 165.9,
+      "female": 154.4
+    },
+    {
+      "year": 1964,
+      "male": 166.4,
+      "female": 154.7
+    },
+    {
+      "year": 1965,
+      "male": 166.8,
+      "female": 154.8
+    },
+    {
+      "year": 1966,
+      "male": 167,
+      "female": 155
+    },
+    {
+      "year": 1967,
+      "male": 167.2,
+      "female": 155.2
+    },
+    {
+      "year": 1968,
+      "male": 167.3,
+      "female": 155.3
+    },
+    {
+      "year": 1969,
+      "male": 167.6,
+      "female": 155.4
+    },
+    {
+      "year": 1970,
+      "male": 167.8,
+      "female": 155.6
+    },
+    {
+      "year": 1971,
+      "male": 168.3,
+      "female": 156
+    },
+    {
+      "year": 1972,
+      "male": 168.3,
+      "female": 155.8
+    },
+    {
+      "year": 1973,
+      "male": 168.4,
+      "female": 156
+    },
+    {
+      "year": 1974,
+      "male": 168.7,
+      "female": 156.2
+    },
+    {
+      "year": 1975,
+      "male": 168.8,
+      "female": 156.3
+    },
+    {
+      "year": 1976,
+      "male": 169,
+      "female": 156.5
+    },
+    {
+      "year": 1977,
+      "male": 169.1,
+      "female": 156.6
+    },
+    {
+      "year": 1978,
+      "male": 169.3,
+      "female": 156.6
+    },
+    {
+      "year": 1979,
+      "male": 169.4,
+      "female": 156.7
+    },
+    {
+      "year": 1980,
+      "male": 169.7,
+      "female": 157
+    },
+    {
+      "year": 1981,
+      "male": 169.7,
+      "female": 157.1
+    },
+    {
+      "year": 1982,
+      "male": 170.1,
+      "female": 157.3
+    },
+    {
+      "year": 1983,
+      "male": 170.2,
+      "female": 157.4
+    },
+    {
+      "year": 1984,
+      "male": 170.2,
+      "female": 157.6
+    },
+    {
+      "year": 1985,
+      "male": 170.2,
+      "female": 157.6
+    },
+    {
+      "year": 1986,
+      "male": 170.3,
+      "female": 157.7
+    },
+    {
+      "year": 1987,
+      "male": 170.3,
+      "female": 157.8
+    },
+    {
+      "year": 1988,
+      "male": 170.3,
+      "female": 157.8
+    },
+    {
+      "year": 1989,
+      "male": 170.5,
+      "female": 157.8
+    },
+    {
+      "year": 1990,
+      "male": 170.4,
+      "female": 157.9
+    },
+    {
+      "year": 1991,
+      "male": 170.6,
+      "female": 157.9
+    },
+    {
+      "year": 1992,
+      "male": 170.7,
+      "female": 157.9
+    },
+    {
+      "year": 1993,
+      "male": 170.7,
+      "female": 158
+    },
+    {
+      "year": 1994,
+      "male": 170.9,
+      "female": 158.1
+    },
+    {
+      "year": 1995,
+      "male": 170.8,
+      "female": 158
+    },
+    {
+      "year": 1996,
+      "male": 170.9,
+      "female": 158.1
+    },
+    {
+      "year": 1997,
+      "male": 170.9,
+      "female": 158
+    },
+    {
+      "year": 1998,
+      "male": 170.9,
+      "female": 158.1
+    },
+    {
+      "year": 1999,
+      "male": 170.9,
+      "female": 158.1
+    },
+    {
+      "year": 2000,
+      "male": 170.8,
+      "female": 158.1
+    },
+    {
+      "year": 2001,
+      "male": 170.9,
+      "female": 158
+    },
+    {
+      "year": 2002,
+      "male": 170.7,
+      "female": 157.9
+    },
+    {
+      "year": 2003,
+      "male": 170.7,
+      "female": 157.8
+    },
+    {
+      "year": 2004,
+      "male": 170.8,
+      "female": 157.9
+    },
+    {
+      "year": 2005,
+      "male": 170.8,
+      "female": 158
+    },
+    {
+      "year": 2006,
+      "male": 170.9,
+      "female": 158
+    },
+    {
+      "year": 2007,
+      "male": 170.8,
+      "female": 158
+    },
+    {
+      "year": 2008,
+      "male": 170.7,
+      "female": 158
+    },
+    {
+      "year": 2009,
+      "male": 170.8,
+      "female": 157.9
+    },
+    {
+      "year": 2010,
+      "male": 170.7,
+      "female": 158
+    },
+    {
+      "year": 2011,
+      "male": 170.7,
+      "female": 158
+    },
+    {
+      "year": 2012,
+      "male": 170.7,
+      "female": 158
+    },
+    {
+      "year": 2013,
+      "male": 170.7,
+      "female": 158
+    },
+    {
+      "year": 2014,
+      "male": 170.7,
+      "female": 157.9
+    },
+    {
+      "year": 2015,
+      "male": 170.7,
+      "female": 157.9
+    },
+    {
+      "year": 2016,
+      "male": 170.7,
+      "female": 157.8
+    },
+    {
+      "year": 2017,
+      "male": 170.6,
+      "female": 157.8
+    },
+    {
+      "year": 2018,
+      "male": 170.6,
+      "female": 157.8
+    },
+    {
+      "year": 2019,
+      "male": 170.6,
+      "female": 157.9
+    }
+  ],
+  "byPrefecture": {
+    "year": "2019",
+    "rows": [
+      {
+        "pref": "北海道",
+        "male": 170.6,
+        "female": 158.2
+      },
+      {
+        "pref": "青森県",
+        "male": 171,
+        "female": 157.8
+      },
+      {
+        "pref": "岩手県",
+        "male": 171.3,
+        "female": 157.9
+      },
+      {
+        "pref": "宮城県",
+        "male": 170.5,
+        "female": 157.6
+      },
+      {
+        "pref": "秋田県",
+        "male": 171.6,
+        "female": 158.2
+      },
+      {
+        "pref": "山形県",
+        "male": 170.6,
+        "female": 158.3
+      },
+      {
+        "pref": "福島県",
+        "male": 169.7,
+        "female": 157.7
+      },
+      {
+        "pref": "茨城県",
+        "male": 170.3,
+        "female": 157.8
+      },
+      {
+        "pref": "栃木県",
+        "male": 170.4,
+        "female": 157.4
+      },
+      {
+        "pref": "群馬県",
+        "male": 170.6,
+        "female": 157.6
+      },
+      {
+        "pref": "埼玉県",
+        "male": 170.6,
+        "female": 158.2
+      },
+      {
+        "pref": "千葉県",
+        "male": 170.9,
+        "female": 158.6
+      },
+      {
+        "pref": "東京都",
+        "male": 171.6,
+        "female": 158.6
+      },
+      {
+        "pref": "神奈川県",
+        "male": 170.8,
+        "female": 158
+      },
+      {
+        "pref": "新潟県",
+        "male": 171.2,
+        "female": 157.9
+      },
+      {
+        "pref": "富山県",
+        "male": 171.3,
+        "female": 158
+      },
+      {
+        "pref": "石川県",
+        "male": 171.5,
+        "female": 158.8
+      },
+      {
+        "pref": "福井県",
+        "male": 171.7,
+        "female": 158.6
+      },
+      {
+        "pref": "山梨県",
+        "male": 170.5,
+        "female": 157.8
+      },
+      {
+        "pref": "長野県",
+        "male": 170.3,
+        "female": 157.5
+      },
+      {
+        "pref": "岐阜県",
+        "male": 170.8,
+        "female": 157.5
+      },
+      {
+        "pref": "静岡県",
+        "male": 170.2,
+        "female": 158
+      },
+      {
+        "pref": "愛知県",
+        "male": 170.5,
+        "female": 157.5
+      },
+      {
+        "pref": "三重県",
+        "male": 170.9,
+        "female": 157.9
+      },
+      {
+        "pref": "滋賀県",
+        "male": 170.8,
+        "female": 158.1
+      },
+      {
+        "pref": "京都府",
+        "male": 170.6,
+        "female": 158.4
+      },
+      {
+        "pref": "大阪府",
+        "male": 170.5,
+        "female": 158
+      },
+      {
+        "pref": "兵庫県",
+        "male": 170.5,
+        "female": 157.7
+      },
+      {
+        "pref": "奈良県",
+        "male": 170.5,
+        "female": 158
+      },
+      {
+        "pref": "和歌山県",
+        "male": 171.2,
+        "female": 158.1
+      },
+      {
+        "pref": "鳥取県",
+        "male": 171.1,
+        "female": 157.8
+      },
+      {
+        "pref": "島根県",
+        "male": 170.3,
+        "female": 156.9
+      },
+      {
+        "pref": "岡山県",
+        "male": 169.9,
+        "female": 157.1
+      },
+      {
+        "pref": "広島県",
+        "male": 170.4,
+        "female": 157.4
+      },
+      {
+        "pref": "山口県",
+        "male": 170.3,
+        "female": 157.2
+      },
+      {
+        "pref": "徳島県",
+        "male": 170.1,
+        "female": 157.4
+      },
+      {
+        "pref": "香川県",
+        "male": 169.9,
+        "female": 156.8
+      },
+      {
+        "pref": "愛媛県",
+        "male": 169.7,
+        "female": 156.8
+      },
+      {
+        "pref": "高知県",
+        "male": 169.7,
+        "female": 156.9
+      },
+      {
+        "pref": "福岡県",
+        "male": 170.7,
+        "female": 157.1
+      },
+      {
+        "pref": "佐賀県",
+        "male": 170.2,
+        "female": 157.1
+      },
+      {
+        "pref": "長崎県",
+        "male": 171,
+        "female": 158
+      },
+      {
+        "pref": "熊本県",
+        "male": 170.1,
+        "female": 156.9
+      },
+      {
+        "pref": "大分県",
+        "male": 169.5,
+        "female": 156.8
+      },
+      {
+        "pref": "宮崎県",
+        "male": 170,
+        "female": 157.1
+      },
+      {
+        "pref": "鹿児島県",
+        "male": 169.9,
+        "female": 158
+      },
+      {
+        "pref": "沖縄県",
+        "male": 168.6,
+        "female": 156.8
+      }
+    ]
+  }
+}

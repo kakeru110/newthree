@@ -27,9 +27,15 @@ const plotW = W - PAD_L - PAD_R;
 const plotH = H - PAD_T - PAD_B;
 
 const allValues = series.flatMap((s) => s.values).filter((v): v is number => v !== null);
-const maxV = Math.max(...allValues);
-const minV = Math.min(0, Math.min(...allValues));
-const niceMax = maxV * 1.12;
+const rawMax = Math.max(...allValues);
+const rawMin = Math.min(...allValues);
+// Line charts encode trend by position, not by bar length, so the axis doesn't need to
+// include zero — it's padded around the actual data range instead, unless that range
+// already spans (or is close to) zero.
+const range = rawMax - rawMin;
+const pad = range === 0 ? Math.max(Math.abs(rawMax) * 0.1, 1) : range * 0.15;
+const minV = Math.min(0, rawMin) === rawMin ? 0 : rawMin - pad;
+const niceMax = rawMax + pad;
 
 function xPos(i: number) {
   return PAD_L + (categories.length === 1 ? plotW / 2 : (plotW * i) / (categories.length - 1));
@@ -48,7 +54,7 @@ const paths = series.map((s) => {
 });
 
 const yTicks = 4;
-const yTickValues = Array.from({ length: yTicks + 1 }, (_, i) => (niceMax / yTicks) * i);
+const yTickValues = Array.from({ length: yTicks + 1 }, (_, i) => minV + ((niceMax - minV) / yTicks) * i);
 ---
 
 <div class="lc" id={chartId} data-categories={JSON.stringify(categories)} data-series={JSON.stringify(series)} data-unit={unit}>

@@ -10,7 +10,8 @@
     "preview": "astro preview",
     "fetch:population": "node scripts/fetch-population.js",
     "fetch:cancer-mortality": "node scripts/fetch-cancer-mortality.js",
-    "fetch:cancer-incidence": "node scripts/fetch-cancer-incidence.js"
+    "fetch:cancer-incidence": "node scripts/fetch-cancer-incidence.js",
+    "fetch:height": "node scripts/fetch-height.js"
   },
   "repository": {
     "type": "git",
