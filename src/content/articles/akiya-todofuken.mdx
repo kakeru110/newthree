@@ -1,0 +1,94 @@
+---
+title: "空き家は本当に増えているのか、都道府県別に見る"
+description: "総務省「住宅・土地統計調査」で空き家率の25年間の推移と、よく引用される「空き家率13.8%」の中身を分解し、都道府県別の「本当の空き家」率を確認する。"
+category: "住宅・地域"
+tags: ["空き家", "住宅・土地統計調査", "人口減少", "e-Stat API"]
+publishedDate: 2026-08-20
+sourceName: "総務省「住宅・土地統計調査」（e-Stat経由で取得）"
+sourceUrl: "https://www.e-stat.go.jp/stat-search/database?statdisp_id=0004015740"
+dataAsOf: "2023年（都道府県別）／全国推移は1998年〜2023年"
+href: "articles/akiya-todofuken/"
+---
+
+import LineChart from '../../components/charts/LineChart.astro';
+import RankedBarChart from '../../components/charts/RankedBarChart.astro';
+import akiya from '../../data/akiya.json';
+
+export const trendYears = akiya.trend.map((d) => String(d.year));
+export const trendSeries = [
+  { name: '空き家率', colorSlot: 1, values: akiya.trend.map((d) => d.vacancyRate) },
+];
+
+export const breakdownRows = [
+  { pref: '賃貸用の空き家', value: Math.round((akiya.breakdown.vacantRent / 10000) * 10) / 10, changeRate: null },
+  { pref: '売却用の空き家', value: Math.round((akiya.breakdown.vacantSale / 10000) * 10) / 10, changeRate: null },
+  { pref: '二次的住宅(別荘等)', value: Math.round((akiya.breakdown.vacantSecondary / 10000) * 10) / 10, changeRate: null },
+  { pref: 'その他の空き家(いわゆる「本当の空き家」)', value: Math.round((akiya.breakdown.vacantTrue / 10000) * 10) / 10, changeRate: null },
+];
+
+export const totalRateRows = akiya.byPrefecture.rows.map((r) => ({ pref: r.pref, value: r.totalRate, changeRate: null }));
+export const trueRateRows = akiya.byPrefecture.rows.map((r) => ({ pref: r.pref, value: r.trueRate, changeRate: null }));
+
+「日本の空き家率は13.8%」という数字を見聞きした人も多いと思います。まずはこの数字が本当に増え続けているのかを確認し、そのうえで「13.8%」の中身が何でできているのかを分解していきます。
+
+## 空き家率は、実際に増え続けている
+
+総務省の住宅・土地統計調査は5年に一度、全国の住宅数と空き家数を調べています。1998年から2023年までの全国の空き家率の推移です。
+
+<LineChart
+  categories={trendYears}
+  series={trendSeries}
+  title="全国の空き家率の推移(1998〜2023年)"
+  unit="%"
+/>
+
+<div class="term-note">
+<p><b>住宅・土地統計調査</b> — 総務省が5年ごとに実施する国の基幹統計。全国の住宅総数と、そのうち人が住んでいない「空き家」の数を都道府県別に調べている。ここでの空き家率は「空き家数 ÷ 住宅総数」。</p>
+</div>
+
+1998年の11.5%から2023年の13.8%まで、調査のたびに一貫して上昇しています。がんの罹患率のように「調べ方が変わったから増えて見える」ような統計上のからくりはなく、これは素直に「空き家は増え続けている」と言ってよい数字です。
+
+## ただし「空き家」の中身は一様ではない
+
+ここからが本題です。「空き家率13.8%」と聞くと、廃屋のような放置住宅が13.8%もあるように感じますが、実際にはこの数字には性質の異なる住宅が混ざっています。2023年の内訳です。
+
+<RankedBarChart
+  rows={breakdownRows}
+  title="空き家の内訳(2023年、全国)"
+  unit="万戸"
+  deltaLabel=""
+  legendNote="「賃貸用」「売却用」は市場に出ている住宅、「二次的住宅」は別荘など"
+/>
+
+空き家899万戸のうち、**賃貸用の空き家が443万戸と半分近くを占めます**。これは入居者募集中のアパート・マンションの一室なども含まれるため、「放置された空き家」というより「今は空室の物件」に近いものです。売却用33万戸、別荘などの二次的住宅38万戸を除くと、残るのは385万戸。これが賃貸にも売却にも出ておらず、人も住んでいない、いわゆる「その他の空き家」で、社会問題として語られる空き家に最も近い数字です。全国の住宅総数に対する比率で言うと、13.8%ではなく**5.9%**になります。
+
+## 都道府県別に見ると、順位が入れ替わる
+
+この「総数としての空き家率」と「その他の空き家率」を都道府県別に比べると、見え方がかなり変わります。
+
+<RankedBarChart
+  rows={totalRateRows}
+  title="都道府県別 空き家率(総数、2023年)"
+  unit="%"
+  deltaLabel=""
+  legendNote="和歌山県・徳島県が最も高く、埼玉県・沖縄県が最も低い"
+/>
+
+<RankedBarChart
+  rows={trueRateRows}
+  title="都道府県別 「その他の空き家」率(2023年)"
+  unit="%"
+  deltaLabel=""
+  legendNote="鹿児島県・高知県が最も高く、東京都・神奈川県が最も低い"
+/>
+
+総数の空き家率では山梨県が20.5%で全国3位ですが、「その他の空き家」率で見ると8.7%まで下がり、順位も47都道府県中18位まで落ちます。山梨県は別荘や賃貸物件が多いために総数としての空き家率が高く出ていて、放置された空き家の比率で見ると突出しているわけではない、ということです。
+
+一方、鹿児島県・高知県・徳島県・愛媛県は総数でも「その他の空き家」でも一貫して上位に入ります。四国・九州の一部の県では、別荘需要や賃貸市場の影響を除いても、実際に人が住まなくなった住宅が多いということです。人口減少・高齢化が進む地域ほど、この「その他の空き家」が増えやすい傾向がうかがえます。
+
+## まとめ
+
+- 全国の空き家率は1998年11.5%→2023年13.8%と、調査のたびに一貫して上昇している
+- ただし「空き家899万戸」のうち約半分は賃貸募集中の物件で、放置された空き家に近い「その他の空き家」は385万戸(住宅総数の5.9%)
+- 都道府県別に見ると、総数の空き家率が高い県が必ずしも「放置空き家」が多いとは限らない。山梨県のように別荘・賃貸市場の影響で総数の順位が押し上げられているケースもある
+- 「その他の空き家」率で一貫して上位なのは鹿児島県・高知県・徳島県・愛媛県など、人口減少が進む地域
