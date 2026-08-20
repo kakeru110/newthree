@@ -114,20 +114,15 @@ const chartId = `chart-${Math.random().toString(36).slice(2, 9)}`;
   .pbc-tooltip .tt-row { display: flex; justify-content: space-between; gap: 12px; }
 
   @media (max-width: 520px) {
-    .pbc { padding: 14px; overflow-x: visible; }
+    .pbc { padding: 12px 14px; overflow-x: visible; }
     .pbc-bars { min-width: 0; }
-    .pbc-row {
-      grid-template-columns: 1fr auto;
-      grid-template-rows: auto auto;
-      row-gap: 4px;
-      column-gap: 8px;
-      padding: 7px 0;
-      border-bottom: 1px solid var(--gridline);
-    }
-    .pbc-row:last-child { border-bottom: none; }
-    .pbc-pref { grid-column: 1; grid-row: 1; text-align: left; font-weight: 600; }
-    .pbc-valcell { grid-column: 2; grid-row: 1; }
-    .pbc-track { grid-column: 1 / -1; grid-row: 2; border-bottom: none; }
+    .pbc-row { grid-template-columns: 58px 1fr auto; gap: 6px; padding: 1px 0; }
+    .pbc-pref { font-size: 11px; white-space: normal; line-height: 1.2; }
+    .pbc-track { height: 16px; }
+    .pbc-bar { height: 12px; top: 2px; }
+    .pbc-valcell { font-size: 11px; gap: 5px; }
+    .pbc-val { font-weight: 600; }
+    .pbc-delta { font-size: 10px; }
   }
 </style>
 

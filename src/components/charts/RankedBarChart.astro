@@ -67,19 +67,14 @@ const max = sorted[0]?.value ?? 1;
   .rbc-swatch { width: 10px; height: 10px; border-radius: 2px; background: var(--series-1); display: inline-block; }
 
   @media (max-width: 520px) {
-    .rbc { padding: 14px; overflow-x: visible; }
+    .rbc { padding: 12px 14px; overflow-x: visible; }
     .rbc-bars { min-width: 0; }
-    .rbc-row {
-      grid-template-columns: 1fr auto;
-      grid-template-rows: auto auto;
-      row-gap: 4px;
-      column-gap: 8px;
-      padding: 7px 0;
-      border-bottom: 1px solid var(--gridline);
-    }
-    .rbc-row:last-child { border-bottom: none; }
-    .rbc-pref { grid-column: 1; grid-row: 1; text-align: left; font-weight: 600; white-space: normal; }
-    .rbc-valcell { grid-column: 2; grid-row: 1; }
-    .rbc-track { grid-column: 1 / -1; grid-row: 2; border-bottom: none; }
+    .rbc-row { grid-template-columns: 58px 1fr auto; gap: 6px; padding: 1px 0; }
+    .rbc-pref { font-size: 11px; white-space: normal; line-height: 1.2; }
+    .rbc-track { height: 16px; }
+    .rbc-bar { height: 12px; top: 2px; }
+    .rbc-valcell { font-size: 11px; gap: 5px; }
+    .rbc-val { font-weight: 600; }
+    .rbc-delta { font-size: 10px; }
   }
 </style>
