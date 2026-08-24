@@ -34,7 +34,7 @@ const rawMin = Math.min(...allValues);
 // already spans (or is close to) zero.
 const range = rawMax - rawMin;
 const pad = range === 0 ? Math.max(Math.abs(rawMax) * 0.1, 1) : range * 0.15;
-const minV = Math.min(0, rawMin) === rawMin ? 0 : rawMin - pad;
+const minV = rawMin >= 0 ? Math.max(0, rawMin - pad) : rawMin - pad;
 const niceMax = rawMax + pad;
 
 function xPos(i: number) {

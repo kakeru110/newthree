@@ -1,0 +1,24 @@
+---
+import { getEntry, render } from 'astro:content';
+import ArticleLayout from '../../layouts/ArticleLayout.astro';
+
+const entry = await getEntry('articles', 'gaikokujin-rentacar-jiko');
+if (!entry) throw new Error('article entry not found: gaikokujin-rentacar-jiko');
+const { Content } = await render(entry);
+---
+
+<ArticleLayout
+  title={entry.data.title}
+  description={entry.data.description}
+  category={entry.data.category}
+  dataAsOf={entry.data.dataAsOf}
+  sources={[
+    { name: '内閣府「令和7年交通安全白書」', url: 'https://www8.cao.go.jp/koutu/taisaku/r07kou_haku/zenbun/genkyo/topics/topic_6.html' },
+    { name: '国土交通省「訪日外国人レンタカーの交通安全対策を空港周辺地域で本格展開します」', url: 'https://www.mlit.go.jp/report/press/road01_hh_002116.html' },
+    { name: '日本政府観光局(JNTO)「訪日外客数」', url: 'https://www.jnto.go.jp/statistics/data/visitors-statistics/' },
+    { name: '警察庁「外国の運転免許をお持ちの方」', url: 'https://www.npa.go.jp/policies/application/license_renewal/have_DL_issed_another_country.html' },
+  ]}
+  publishedDate={entry.data.publishedDate}
+>
+  <Content />
+</ArticleLayout>
