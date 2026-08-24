@@ -47,10 +47,20 @@ function yPos(v: number) {
 const colorVar = (slot: number | undefined) => (slot === 2 ? '--series-2' : slot === 3 ? '--series-3' : '--series-1');
 
 const paths = series.map((s) => {
-  const pts = s.values
-    .map((v, i) => (v === null ? null : `${xPos(i)},${yPos(v)}`))
-    .filter((p): p is string => p !== null);
-  return { name: s.name, d: 'M ' + pts.join(' L '), colorVar: colorVar(s.colorSlot), dash: s.dash };
+  // Build one subpath per contiguous run of non-null values, so a null (missing year)
+  // breaks the line instead of silently interpolating across the gap.
+  const segments: string[] = [];
+  let current: string[] = [];
+  s.values.forEach((v, i) => {
+    if (v === null) {
+      if (current.length) segments.push('M ' + current.join(' L '));
+      current = [];
+    } else {
+      current.push(`${xPos(i)},${yPos(v)}`);
+    }
+  });
+  if (current.length) segments.push('M ' + current.join(' L '));
+  return { name: s.name, d: segments.join(' '), colorVar: colorVar(s.colorSlot), dash: s.dash };
 });
 
 const yTicks = 4;
