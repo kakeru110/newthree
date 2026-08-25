@@ -6,7 +6,7 @@
 
 ```sh
 npm install
-npm run dev      # http://localhost:4321/newthree/
+npm run dev      # http://localhost:4321/tokeidokkai/
 npm run build    # dist/ に静的出力
 npm run preview  # ビルド結果をローカル確認
 ```
