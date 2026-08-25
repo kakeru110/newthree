@@ -4,6 +4,6 @@ import sitemap from '@astrojs/sitemap';
 
 export default defineConfig({
   site: 'https://kakeru110.github.io',
-  base: '/newthree',
+  base: '/tokeidokkai',
   integrations: [mdx(), sitemap()],
 });

@@ -16,15 +16,15 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/kakeru110/newthree.git"
+    "url": "git+https://github.com/kakeru110/tokeidokkai.git"
   },
   "keywords": [],
   "author": "",
   "license": "ISC",
   "bugs": {
-    "url": "https://github.com/kakeru110/newthree/issues"
+    "url": "https://github.com/kakeru110/tokeidokkai/issues"
   },
-  "homepage": "https://github.com/kakeru110/newthree#readme",
+  "homepage": "https://github.com/kakeru110/tokeidokkai#readme",
   "dependencies": {
     "@astrojs/mdx": "^7.0.5",
     "@astrojs/sitemap": "^3.7.3",
