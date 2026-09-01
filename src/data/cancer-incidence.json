@@ -1,7 +1,7 @@
 {
   "sourceUrl": "https://ganjoho.jp/reg_stat/statistics/data/dl/index.html",
   "fileUrl": "https://ganjoho.jp/reg_stat/statistics/data/dl/excel/cancer_incidence3pref(1985-2023).xls",
-  "fetchedAt": "2026-08-15T06:43:22.394Z",
+  "fetchedAt": "2026-09-01T20:53:43.371Z",
   "modelPopulation": "昭和60年モデル人口",
   "note": "2016年以降は全国がん登録(義務化・全数把握)、2015年以前は地域がん登録(高精度地域の推計値)に基づく。集計方法の違いにより2016年で数値が不連続になる点に注意。",
   "crude": [
